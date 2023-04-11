@@ -1,0 +1,16 @@
+.container-fav {
+   
+    justify-content: center;
+   margin-bottom: 2rem;
+   display: grid; 
+   gap: 1rem;
+  
+   align-items: center;
+}
+.container-Myitem{
+    margin-bottom: 4rem;
+}
+.card_img {
+    width:16rem;
+    height:13rem;
+}

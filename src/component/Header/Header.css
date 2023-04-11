@@ -1,0 +1,60 @@
+
+.header {
+    background-color: black;
+    }
+.header-container {
+   
+    padding: 1.3rem;
+    margin:0 auto;
+    /* padding:0 1.6rem; */
+    max-width: 80rem;
+    
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+nav div h3 {
+    color: white;
+    font-weight: 700;
+}
+
+nav div {
+    display: flex;
+   
+    gap: 4rem;
+}
+nav p {
+    text-decoration: none !important;
+    color: #f2f2f4be;
+    font-size: 1.4rem;
+    font-weight: 500;
+
+    border-radius: .3rem;
+}
+
+.header-nva Link {
+    text-decoration: none !important;
+    
+}
+.button--header {
+
+    background-color:#525050;
+    
+    color:white;
+    border: none;
+ 
+    display:inline-block;
+    text-decoration: none;
+    padding: 1.2rem;
+    font-weight: 300;
+    line-height: 1;
+    font-size: 1.8rem;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+   
+}
+.link:hover {
+    color:inherit;
+}
