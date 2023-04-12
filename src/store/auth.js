@@ -8,36 +8,43 @@ import Swal from "sweetalert2";
 const url = process.env.REACT_APP_URL;
 
 //******signin****//
-export const signin = createAsyncThunk("auth/signin", async (data, thunkApi) => {
-  const { rejectWithValue } = thunkApi;
-  try {
-    const request = await axios.post(
-      `${url}/signin`,
-      {},
-      {
-        headers: {
-          authorization: `Basic ${base64.encode(`${data.username}:${data.password}`)}`,
-        },
-      }
-    );
-    window.location.href = "/";
-    return request.data;
-  } catch (err) {
-    return rejectWithValue(err.request.response);
+export const signin = createAsyncThunk(
+  "auth/signin",
+  async (data, thunkApi) => {
+    const { rejectWithValue } = thunkApi;
+    try {
+      const request = await axios.post(
+        `${url}/signin`,
+        {},
+        {
+          headers: {
+            authorization: `Basic ${base64.encode(
+              `${data.username}:${data.password}`
+            )}`,
+          },
+        }
+      );
+
+      return request.data;
+    } catch (err) {
+      return rejectWithValue(err.request.response);
+    }
   }
-});
+);
 
 //// sign up //////
-export const signup = createAsyncThunk("auth/signup", async (data, thunkApi) => {
-  const { rejectWithValue } = thunkApi;
-  try {
-    const request = await axios.post(`${url}/signup`, data);
-    return request.data;
-  } catch (err) {
-    return rejectWithValue(err.message);
+export const signup = createAsyncThunk(
+  "auth/signup",
+  async (data, thunkApi) => {
+    const { rejectWithValue } = thunkApi;
+    try {
+      const request = await axios.post(`${url}/signup`, data);
+      return request.data;
+    } catch (err) {
+      return rejectWithValue(err.message);
+    }
   }
-});
-
+);
 
 const initialState = {
   isSignin: cookie.load("token") ? true : false,
@@ -52,7 +59,7 @@ const authSlice = createSlice({
   extraReducers: {
     [signin.fulfilled]: (state, action) => {
       state.isSignin = true;
-     
+
       cookie.save("token", action.payload.token);
       cookie.save("actions", action.payload.actions);
       cookie.save("userAccess", action.payload.role);
@@ -92,9 +99,6 @@ const authSlice = createSlice({
       state.isLoadingSignUp = false;
       state.errorSignUp = action.payload;
     },
-    
- 
-
   },
 });
 

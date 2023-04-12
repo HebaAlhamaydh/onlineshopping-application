@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 
@@ -36,7 +36,11 @@ function App() {
             <Route path="/cart" element={<Cart/>} />
             <Route path="/card/:id" element={<CardDetails />} />
       
-            <Route path="/myItems" element={<MyItems />} />
+            <Route path="/myItems" element={
+              <PrivateRoute>
+                <MyItems />
+              </PrivateRoute>
+            } />
             <Route path="/favList" element={<AddToFav />} />
            
           </Routes>
@@ -54,6 +58,13 @@ function App() {
        )}
     </>
   );
+}
+
+const PrivateRoute = ({ children }) => {
+  const { isSignin } = useSelector(state => state.authSlice);
+  if(!isSignin)
+    return <Navigate to={'/'} />
+  return children;
 }
 
 export default App;

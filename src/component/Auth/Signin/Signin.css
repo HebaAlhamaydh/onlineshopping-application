@@ -1,21 +1,23 @@
-.rounded-t-5 {
-  border-top-left-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
- 
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #fccb90;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
 }
 
-@media (max-width: 550px) {
-  .rounded-tr-lg-0 {
-    border-top-right-radius: 0.5rem;
-    border-bottom-left-radius: 0rem;
-
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh !important;
   }
 }
-
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-  /* color: var(--bs-nav-pills-link-active-color); */
-  background-color: #fff2c0 !important;
-  color: black !important;
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+  }
 }
-
-
