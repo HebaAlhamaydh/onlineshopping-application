@@ -6,10 +6,13 @@ import "react-toastify/dist/ReactToastify.css";
 import {
   MDBBtn,
   MDBContainer,
+  MDBCard,
+  MDBCardBody,
   MDBCardImage,
   MDBRow,
   MDBCol,
-  MDBInput,
+  MDBIcon,
+  MDBInput
  
 } from "mdb-react-ui-kit";
 import "./Signin.css";
@@ -54,21 +57,20 @@ export default function Signin() {
 
           <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email'  inputRef={usernameRef} required/>
           <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' inputRef={passwordRef} req/>
-
-
-          <div className="text-center pt-1 mb-5 pb-1">
-            <MDBBtn className="mb-4 w-100 gradient-custom-2"onClick={handleSignin}>Sign in</MDBBtn>
+          <button onClick={handleSignin} className="mb-4 w-100 gradient-custom-2 rounded-t-5 ">Sign in</button>
+          
+           
             <a className="text-muted" href="#!">Forgot password?</a>
-          </div>
+        
 
           <div className="d-flex flex-row align-items-center justify-content-center pb-4 mb-4">
             <p className="mb-0">Don't have an account?</p>
-            <MDBBtn outline className='mx-2' color='danger'>
+            <button outline className='mx-2' color='danger'>
             <Link to="/signup" style={{ color: "#393f81" ,textDecoration:"none"}}>
                   Register
                 </Link>
            
-            </MDBBtn>
+            </button>
           </div>
 
         </div>
@@ -82,8 +84,6 @@ export default function Signin() {
               alt="phone"
               className="rounded-start w-100"
            />
-          
-
         </div>
 
       </MDBCol>
@@ -91,5 +91,6 @@ export default function Signin() {
     </MDBRow>
 
   </MDBContainer>
+
   );
 }
